@@ -22,9 +22,10 @@ def play():
     name = input("What's your name, player ? ")
     list = json.load(QUESTIONS_FILE)
     questions_list = list['questions']
+    number_questions = len(list['questions'])
 
     print(f"Hello {name} ! Welcome to our quiz game !")
-    print(f"Today, for you, we have {len(list['questions'])} questions for you !")
+    print(f"Today, for you, we have {number_questions} questions for you !")
 
     for i in range(len(questions_list)):
         question = random.choice(questions_list)
@@ -36,6 +37,6 @@ def play():
             print("Wrong !")
         questions_list.remove(question)
     
-    print(f"You had {correct} right answers, out of {len(list['questions'])} possible ones.")
+    print(f"You had {correct} right answers, out of {number_questions} possible ones.")
 
 main()
