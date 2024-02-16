@@ -34,7 +34,7 @@ def play():
             print("Correct !")
             correct += 1
         else:
-            print("Wrong !")
+            print(f"Wrong ! The right answer was : {question['answer']}")
         questions_list.remove(question)
     
     print(f"You had {correct} right answers, out of {number_questions} possible ones.")
