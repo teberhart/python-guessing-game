@@ -4,6 +4,20 @@ import json
 QUESTIONS_FILE = open('questions.json')
 
 def main():
+    playing = True
+
+    while playing != False:
+        print("I have a general knowledge quiz for you !")
+        playing = input("Are you interested ? ")
+        if playing.lower() == "yes":
+            play()
+            playing = False
+        elif playing.lower() == "no":
+            playing = False
+        else:
+            print("You have to type either yes or no.")
+
+def play():
     correct = 0
     name = input("What's your name, player ? ")
     list = json.load(QUESTIONS_FILE)
