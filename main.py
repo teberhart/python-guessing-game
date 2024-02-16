@@ -1,41 +1,27 @@
 import random
+import json
 
-QUESTION_1 = "What is the biggest country in the world ? "
-ANSWER_1 = "Russia"
-Q1 = [QUESTION_1, ANSWER_1]
-
-QUESTION_2 = "What is the most spoken language in the world ? "
-ANSWER_2 = "Chinese"
-Q2 = [QUESTION_2, ANSWER_2]
-
-QUESTION_3 = "Paris is known as the city of ... ? "
-ANSWER_3 = "Love"
-Q3 = [QUESTION_3, ANSWER_3]
-
-QUESTION_4 = "Bacon comes from what animal ? "
-ANSWER_4 = "Pig"
-Q4 = [QUESTION_4, ANSWER_4]
-
-QUESTIONS = [Q1, Q2, Q3, Q4]
+QUESTIONS_FILE = open('questions.json')
 
 def main():
     correct = 0
     name = input("What's your name, player ? ")
-    list = QUESTIONS[:]
+    list = json.load(QUESTIONS_FILE)
+    questions_list = list['questions']
 
     print(f"Hello {name} ! Welcome to our quiz game !")
-    print(f"Today, for you, we have {len(list)} questions for you !")
+    print(f"Today, for you, we have {len(list['questions'])} questions for you !")
 
-    for i in range(len(list)):
-        question = random.choice(list)
-        answer = input(question[0])
-        if answer.lower() == question[1].lower():
+    for i in range(len(questions_list)):
+        question = random.choice(questions_list)
+        answer = input(question['question'])
+        if answer.lower() == question['answer'].lower():
             print("Correct !")
             correct += 1
         else:
             print("Wrong !")
-        list.remove(question)
+        questions_list.remove(question)
     
-    print(f"You had {correct} right answers, out of {len(QUESTIONS)} possible ones.")
+    print(f"You had {correct} right answers, out of {len(list['questions'])} possible ones.")
 
 main()

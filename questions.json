@@ -1,0 +1,20 @@
+{
+    "questions": [
+        {
+            "question": "What is the biggest country in the world ? ",
+            "answer" : "Russia"
+        },
+        {
+            "question": "What is the most spoken language in the world ? ",
+            "answer" : "Chinese"
+        },
+        {
+            "question": "Paris is known as the city of ... ? ",
+            "answer" : "Love"
+        },
+        {
+            "question": "Bacon comes from what animal ? ",
+            "answer" : "Pig"
+        }
+    ]
+}
